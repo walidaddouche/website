@@ -10,7 +10,7 @@
 <body>
 <div class="cont">
     <div class="form sign-in">
-        <h2>Sign In</h2>
+        <h2>Connexion</h2>
         <%- include partials/messages.ejs %>
 
         <form action="/users/login" method="POST">
@@ -18,10 +18,10 @@
                 <label for="email">Email</label>
                 <input
                         type="email"
-                        id="email"
+                        id="Email"
                         name="email"
                         class="form-control"
-                        placeholder="Enter Email"
+                        placeholder="Entrez votre Email"
                 />
             </div>
             <div class="form-group">
@@ -29,9 +29,9 @@
                 <input
                         type="password"
                         id="password"
-                        name="password"
+                        name="mot de passe"
                         class="form-control"
-                        placeholder="Enter Password"
+                        placeholder="Entez votre mot de passe"
                 />
             </div>
             <button type="submit" class="btn btn-primary btn-block">Login</button>
@@ -40,10 +40,6 @@
 
         <div class="social-media">
             <ul>
-                <li><img src="../public/images/facebook.png"></li>
-                <li><img src="../public/images/twitter.png"></li>
-                <li><img src="../public/images/linkedin.png"></li>
-                <li><img src="../public/images/instagram.png"></li>
             </ul>
         </div>
     </div>
@@ -51,16 +47,16 @@
     <div class="sub-cont">
         <div class="img">
             <div class="img-text m-up">
-                <h2>New here?</h2>
-                <p>Sign up and discover great amount of new opportunities!</p>
+                <h2>Nouveau Ici</h2>
+                <p>CONNECTEZ-VOUS ET DECOUVREZ DE NOUVELLES OPORTUNITÉS!</p>
             </div>
             <div class="img-text m-in">
                 <h2>One of us?</h2>
                 <p>If you already has an account, just sign in. We've missed you!</p>
             </div>
             <div class="img-btn">
-                <span class="m-up">Sign Up</span>
-                <span class="m-in">Sign In</span>
+                <span class="m-up">Connexion</span>
+                <span class="m-in">Inscription</span>
             </div>
         </div>
         <div class="form sign-up">

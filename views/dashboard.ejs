@@ -1,3 +1,112 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= user.name %></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script>
+    setInterval(function () {
+      fetch('/messages_content').then(function (response) {
+        return response.text();
+
+      }).then(function (text) {
+        var messages = document.getElementById('messages');
+        messages.innerHTML = text;
+
+      });
+    }, 1000);
+
+  </script>
+</head>
+<title>Dashboard</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand mr-auto" href="#">Ravi</a>
+    <span class="text-light mr-1"> Bienvenue  </span>
+  <a href="/users/logout"> <input href="/users/logout" class="form-control btn btn-secondary m-1" type="submit" value="Se déconnecter"></a>
+  </form>
+
+</nav>
+
+<main role="main">
+
+  <div class="container mt-3 mb-3">
+
+    <div class="alert alert-{{info.type}}"> {{info.text}}</div>
+
+    <h2><img height="64" src="https://svgsilh.com/svg/310393-007bff.svg"> Liste des messages </h2>
+    <p> Cette liste contient les 10 derniers messages publiés. </p>
+
+    <div id="messages">
+      {{#messages}}
+      <p><strong>{{author}}</strong> : {{text}} </p>
+      {{/messages}}
+    </div>
+
+    <h2> Ajouter un message </h2>
+    <p> Réfléchissez bien avant d'écrire, le sort du monde en dépend. </p>
+
+    <form class="form-inline" action="add_message" method="post">
+      <input class="form-control m-1" type="text" name="text" placeholder="Texte" autofocus>
+      <input class="form-control btn btn-primary m-1" type="submit" value="Ajouter">
+    </form>
+
+  </div>
+
+</main>
+<style>
+  .top-bar {
+    position: fixed;
+    top: 0px;
+    margin: 0px;
+    width: 100%;
+    text-align: right;
+    padding: 0.2rem;
+  }
+
+  #login-form h2 {
+    display: none;
+  }
+
+  #login-form {
+    background: orange;
+  }
+
+  .main-content {
+    padding-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+
+  .info {
+    color: blue;
+    font-weight: bold;
+  }
+
+  .danger {
+    color: red;
+    font-weight: bold;
+  }
+
+  #new-user-form {
+    background: yellow;
+  }
+
+  .message {
+    background: salmon;
+  }
+
+  #new-message-form {
+    background: skyblue;
+  }
+
+  #logout-form {
+    background: lime;
+  }
+</style>
+</body>
+</html>

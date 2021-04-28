@@ -16,11 +16,11 @@ router.post("/", function(request, response) {
     });
 
     var textBody = `FROM: ${request.body.name} EMAIL: ${request.body.email} MESSAGE: ${request.body.message}`;
-    var htmlBody = `<h2>Mail From Contact Form</h2><p>from: ${request.body.name} <a href="mailto:${request.body.email}">${request.body.email}</a></p><p>${request.body.message}</p>`;
+    var htmlBody = `<h2>Mail From Contact Form</h2><p>from: ${request.body.name} <br> Email : <a href="mailto:${request.body.email}">${request.body.email}</a></p><p>${request.body.message}</p>`;
     var mail = {
-        from: "un.don.un.sourire13@gmail.com", // sender address
-        to: "un.don.un.sourire13@gmail.com", // list of receivers (THIS COULD BE A DIFFERENT ADDRESS or ADDRESSES SEPARATED BY COMMAS)
-        subject: "Mail From Contact Form", // Subject line
+        from: "un.don.un.sourire13@gmail.com",
+        to: "un.don.un.sourire13@gmail.com",
+        subject: "Mail From Contact Form",
         text: textBody,
         html: htmlBody
     };
