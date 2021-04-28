@@ -10,16 +10,16 @@ router.post("/", function(request, response) {
         port: 465,
         secure: true,
         auth: {
-            user: "walid.add93@gmail.com", // this should be YOUR GMAIL account
-            pass: "addouche2001*" // this should be your password
+            user: "un.don.un.sourire13@gmail.com", // this should be YOUR GMAIL account
+            pass: "UnDonUnSourire13" // this should be your password
         }
     });
 
     var textBody = `FROM: ${request.body.name} EMAIL: ${request.body.email} MESSAGE: ${request.body.message}`;
     var htmlBody = `<h2>Mail From Contact Form</h2><p>from: ${request.body.name} <a href="mailto:${request.body.email}">${request.body.email}</a></p><p>${request.body.message}</p>`;
     var mail = {
-        from: "walid.add93@gmail.com", // sender address
-        to: "walid.add93@gmail.com", // list of receivers (THIS COULD BE A DIFFERENT ADDRESS or ADDRESSES SEPARATED BY COMMAS)
+        from: "un.don.un.sourire13@gmail.com", // sender address
+        to: "un.don.un.sourire13@gmail.com", // list of receivers (THIS COULD BE A DIFFERENT ADDRESS or ADDRESSES SEPARATED BY COMMAS)
         subject: "Mail From Contact Form", // Subject line
         text: textBody,
         html: htmlBody
