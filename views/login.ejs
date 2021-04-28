@@ -1,34 +1,191 @@
-<div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    <div class="card card-body">
-      <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i>  Login</h1>
-      <% include ./partials/messages %>
-      <form action="/users/login" method="POST">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-control"
-            placeholder="Enter Email"
-          />
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>How to Design Login & Registration Form Transition</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="cont">
+    <div class="form sign-in">
+        <h2>Sign In</h2>
+        <%- include partials/messages.ejs %>
+
+        <form action="/users/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Enter Email"
+                />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="Enter Password"
+                />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+
+
+        <div class="social-media">
+            <ul>
+                <li><img src="../public/images/facebook.png"></li>
+                <li><img src="../public/images/twitter.png"></li>
+                <li><img src="../public/images/linkedin.png"></li>
+                <li><img src="../public/images/instagram.png"></li>
+            </ul>
         </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            class="form-control"
-            placeholder="Enter Password"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Login</button>
-      </form>
-      <p class="lead mt-4">
-        No Account? <a href="/users/register">Register</a>
-      </p>
     </div>
-  </div>
+
+    <div class="sub-cont">
+        <div class="img">
+            <div class="img-text m-up">
+                <h2>New here?</h2>
+                <p>Sign up and discover great amount of new opportunities!</p>
+            </div>
+            <div class="img-text m-in">
+                <h2>One of us?</h2>
+                <p>If you already has an account, just sign in. We've missed you!</p>
+            </div>
+            <div class="img-btn">
+                <span class="m-up">Sign Up</span>
+                <span class="m-in">Sign In</span>
+            </div>
+        </div>
+        <div class="form sign-up">
+            <%- include partials/messages.ejs %>
+
+            <form action="/users/register" id="register" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input
+                            type="name"
+                            id="name"
+                            name="name"
+                            class="form-control"
+                            placeholder="Enter Name"
+                            value="<%= typeof name != 'undefined' ? name : '' %>"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter Email"
+                            value="<%= typeof email != 'undefined' ? email : '' %>"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Create Password"
+                            value="<%= typeof password != 'undefined' ? password : '' %>"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input
+                            type="password"
+                            id="password2"
+                            name="password2"
+                            class="form-control"
+                            placeholder="Confirm Password"
+                            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="typeofAccount">Confirm type of account</label>
+                    <select required form="register" id="typeofAccount" name="choice" style="width:100%; text-align: center">
+                        <option value="Particulier">Particulier</option>
+                        <option value="Profession">Professionel</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    Register
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-6 m-auto">
+            <div class="card card-body">
+                <h1 class="text-center mb-3">
+                    <i class="fas fa-user-plus"></i> Register
+                </h1>
+                <%- include partials/messages.ejs %>
+                <form action="/users/register" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input
+                                type="name"
+                                id="name"
+                                name="name"
+                                class="form-control"
+                                placeholder="Enter Name"
+                                value="<%= typeof name != 'undefined' ? name : '' %>"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="Enter Email"
+                                value="<%= typeof email != 'undefined' ? email : '' %>"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                class="form-control"
+                                placeholder="Create Password"
+                                value="<%= typeof password != 'undefined' ? password : '' %>"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="password2">Confirm Password</label>
+                        <input
+                                type="password"
+                                id="password2"
+                                name="password2"
+                                class="form-control"
+                                placeholder="Confirm Password"
+                                value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+                        />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Register
+                    </button>
+                </form>
+                <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+            </div>
+        </div>
+    </div>
 </div>
+<script type="text/javascript" src="../public/javascripts/script.js"></script>
+</body>
+</html>

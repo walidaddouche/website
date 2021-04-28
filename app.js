@@ -8,16 +8,15 @@ const app = express();
 
 // Passport Config
 require('./config/passport')(passport);
+const nodemailer = require("nodemailer");
 
 
 // EJS
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
-
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
-
-// Express session
+app.use('/public', express.static('public'));// Express session
 app.use(
   session({
     secret: 'secret',
@@ -25,6 +24,7 @@ app.use(
     saveUninitialized: true
   })
 );
+app.use(express.json());
 
 // Passport middleware
 app.use(passport.initialize());
@@ -44,7 +44,10 @@ app.use(function(req, res, next) {
 // Routes
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
+app.use('/about', require('./routes/about.js'));
+app.use('/contact', require('./routes/contact.js'));
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, console.log(`Server running on  ${PORT}`));
+app.listen(PORT,
+    ()=>console.log(`Server running on  ${PORT}`));

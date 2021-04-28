@@ -24,6 +24,7 @@
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
+    "nodemailer": "^6.5.0",
     "nodemon": "^1.18.9"
   }
 }

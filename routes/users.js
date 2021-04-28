@@ -7,18 +7,16 @@ const DB = require('../models/User')
 // Load User model
 const User = require('../models/User');
 const {forwardAuthenticated} = require('../config/auth');
-
 // Login Page
 router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
 
 // Register Page
-router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
+router.get('/register', forwardAuthenticated, (req, res) => res.render('login'));
 
 // Register
 router.post('/register', (req, res) => {
-    const {name, email, password, password2} = req.body;
-    let errors = [];
-
+    const {name, email, password, password2, choice} = req.body;
+    let errors = []
     if (!name || !email || !password || !password2) {
         errors.push({msg: 'Please enter all fields'});
     }
@@ -30,31 +28,37 @@ router.post('/register', (req, res) => {
     if (password.length < 8) {
         errors.push({msg: 'Password must be at least 8 characters'});
     }
+    if (choice === null) {
+        errors.push({msg: 'Veuillez choisir un type de compte '});
 
+    }
     if (errors.length > 0) {
-        res.render('register', {
+        res.render('login', {
             errors,
             name,
             email,
             password,
-            password2
+            password2,
+            choice
         });
     } else {
-        console.log(email)
         let User = DB.User.prepare("SELECT  password,username,email from USERS where email like ? ").get(email)
 
         if (User !== undefined) {
             errors.push({msg: 'Email already exists'});
-            res.render('register', {
+            res.render('login', {
                 name,
             })
         } else {
-            console.log("ani hna")
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(password, salt, (err, hash) => {
                     if (err) throw err;
                     try {
-                        DB.addUser(email, name, hash)
+                        let type = 0
+                        if (choice.value === "Professionel") {
+                            type = 1
+                        }
+                        DB.addUser(email, name, hash, type)
                         req.flash(
                             'success_msg',
                             'You are now registered and can log in'

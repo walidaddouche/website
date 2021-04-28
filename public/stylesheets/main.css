@@ -1,0 +1,98 @@
+@font-face {
+  font-family: 'circ';
+  src: url('../fonts/circ.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/circ.eot?#iefix') format('embedded-opentype'), 
+       url('../fonts/circ.woff2') format('woff2'), 
+       url('../fonts/circ.woff') format('woff'), 
+       url('../fonts/circ.ttf')  format('truetype'), 
+       url('../fonts/circ.svg#circ') format('svg'); 
+}
+
+body {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  color: #a4bdd1;
+  background-color: #222c37;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  margin: 0;
+}
+
+/* Center main content horizontall and vertically */
+main {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1, h2, h3, h4, h5, h6, a {
+  font-family: 'circ', 'Helvetica', sans-serif;
+  font-weight: normal;
+  color: #fff;
+}
+
+h1 small, h2 small, h3 small,
+h4 small, h5 small, h6 small {
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  color: #a4bdd1;
+  font-size: 0.36em;
+}
+
+h1 {
+  /* Image replacement */
+  border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  /* Image parameters */
+  width: 350px;
+  height: 376px;
+  /* Centering */
+  margin: 0 auto;
+}
+
+h1, h2 {
+  font-size: 72px;
+}
+
+h2 {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+h2 small {
+  display: block;
+  margin-top: 10px;
+}
+a{
+	font-size: 30px;
+}
+
+video {
+  display: block;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -100;
+  background: transparent url(media/background-video-poster.jpg) no-repeat;
+  background-size: cover;
+}
+
+.video-overlay {
+  /* Overlay style */
+  background-color: #222c37;
+  opacity: 0.9;
+  /* Stretch to full screen */
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -99;
+}

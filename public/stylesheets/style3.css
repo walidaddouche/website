@@ -1,0 +1,14 @@
+body{
+	background: url("../images/HomePage.jpg") no-repeat;
+	background-size: cover;
+}
+header nav ul {
+	list-style: none;
+	list-style-position: all;
+}
+header nav ul li{
+	float: left;
+	width: 200px;
+	height: 40px;
+	color: white;
+}
